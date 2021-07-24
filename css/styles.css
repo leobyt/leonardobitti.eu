@@ -40,8 +40,23 @@ article mark {
   color: #c80000;
 }
 
-.my-2 {
-  font-size: 1.5rem!important;
+#sidebar {
+  height: 100%;
+}
+
+#coinup {
+  position: absolute;
+  width: 160px;
+  height: 56px;
+}
+
+#coin {
+  position: absolute;
+  width: 56px;
+  left: 50px;
+  bottom: 40px;
+  animation: bounce 1.33s forwards;
+  transform-origin: center bottom;
 }
 
 .heading {
@@ -54,16 +69,6 @@ article mark {
   text-transform: uppercase;
 }
 
-.main-content {
-  background-color: #fff;
-  position: relative;
-  overflow: visible;
-  max-width: 1024px;
-  margin-left: 420px;
-  float: none;
-  clear: none;
-}
-
 .sidebar-content {
   position: fixed;
   left: 0;
@@ -74,8 +79,46 @@ article mark {
   height: 100%;
 }
 
-#sidebar {
-  height: 100%;
+.content {
+  height: 160px;
+  overflow: hidden;
+  line-height: 50px;
+  text-transform: uppercase;
+  font-family: Montserrat,sans-serif!important;
+  font-weight: 800;
+  font-size: 38px;
+}
+
+.content__container {
+  overflow: hidden;
+  height: 40px;
+  padding: 0;
+  margin: 0 0 0 -40px;
+  display: inline-block;
+}
+
+.content__container:after, .content__container:before {
+  position: absolute;
+  top: 0;
+  line-height: 50px;
+  animation-name: opacity;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.content__container__text {
+  display: inline;
+  float: left;
+  margin: 0;
+}
+
+.content__container__list {
+  margin-top: 0;
+  text-align: left;
+  list-style: none;
+  animation-name: change;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
 }
 
 .highlight {
@@ -135,14 +178,18 @@ article mark {
   color: #000;
 }
 
-.skill {
-  margin-bottom: 20px;
+.main-content {
+  background-color: #fff;
+  position: relative;
+  overflow: visible;
+  max-width: 1024px;
+  margin-left: 420px;
+  float: none;
+  clear: none;
 }
 
-.progress {
-  height: 1.2rem!important;
-  background-color: #fff;
-  border-radius: 0px;
+.cover {
+  display: block;
 }
 
 .card {
@@ -159,8 +206,14 @@ article mark {
   margin-bottom: 30px!important;
 }
 
-.cover {
-  display: block;
+.skill {
+  margin-bottom: 20px;
+}
+
+.progress {
+  height: 1.2rem!important;
+  background-color: #fff;
+  border-radius: 0px;
 }
 
 .form-control {
@@ -173,22 +226,8 @@ article mark {
   padding-bottom: 10px;
 }
 
-@media (max-width:1023px) {
-  .sidebar-content {
-    position: static;
-    width: 100%;
-  }
-
-  .main-content {
-    width: 100%;
-    margin-left: 0;
-  }
-}
-
-@media (max-width:629px) {
-  .cover {
-    display: none;
-  }
+.my-2 {
+  font-size: 1.5rem!important;
 }
 
 .black {
@@ -214,48 +253,6 @@ article mark {
   color: #000!important;
 }
 
-.content {
-  height: 160px;
-  overflow: hidden;
-  line-height: 50px;
-  text-transform: uppercase;
-  font-family: Montserrat,sans-serif!important;
-  font-weight: 800;
-  font-size: 38px;
-}
-
-.content__container {
-  overflow: hidden;
-  height: 40px;
-  padding: 0;
-  margin: 0 0 0 -40px;
-  display: inline-block;
-}
-
-.content__container:after, .content__container:before {
-  position: absolute;
-  top: 0;
-  line-height: 50px;
-  animation-name: opacity;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-}
-
-.content__container__text {
-  display: inline;
-  float: left;
-  margin: 0;
-}
-
-.content__container__list {
-  margin-top: 0;
-  text-align: left;
-  list-style: none;
-  animation-name: change;
-  animation-duration: 6s;
-  animation-iteration-count: infinite;
-}
-
 @keyframes opacity {
   0%, 100% {
     opacity: 0;
@@ -275,6 +272,32 @@ article mark {
     transform: translate3d(0, -49px, 0);
     transition: width 0.3s ease-in-out;
     width: 180px;
+  }
+}
+
+@keyframes change-1024 {
+  0%, 45%, 100% {
+    transform: translate3d(0, 3px, 0);
+    transition: width 0.3s ease-in-out;
+    width: 130px;
+  }
+  50%, 95% {
+    transform: translate3d(0, -47px, 0);
+    transition: width 0.3s ease-in-out;
+    width: 161px;
+  }
+}
+
+@keyframes change-630 {
+  0%, 45%, 100% {
+    transform: translate3d(0, 3px, 0);
+    transition: width 0.3s ease-in-out;
+    width: 130px;
+  }
+  50%, 95% {
+    transform: translate3d(0, -47px, 0);
+    transition: width 0.3s ease-in-out;
+    width: 161px;
   }
 }
 
@@ -305,17 +328,32 @@ article mark {
   }
 }
 
-#coinup {
-  position: absolute;
-  width: 160px;
-  height: 56px;
+@media (max-width:1023px) {
+  .sidebar-content {
+    position: static;
+    width: 100%;
+  }
+
+  .main-content {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .heading, .content {
+    font-size: 32px!important;
+  }
+
+  .content__container__list {
+    animation-name: change-1024
+  }
+
+  section {
+    padding: 6%;
+  }
 }
 
-#coin {
-  position: absolute;
-  width: 56px;
-  left: 50px;
-  bottom: 40px;
-  animation: bounce 1.33s forwards;
-  transform-origin: center bottom;
+@media (max-width:629px) {
+  .cover {
+    display: none;
+  }
 }
