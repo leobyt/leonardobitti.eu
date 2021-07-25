@@ -188,6 +188,11 @@ article mark {
   clear: none;
 }
 
+.video-container {
+  width: 100%;
+  padding-top: 56.25%;
+}
+
 .cover {
   display: block;
 }
