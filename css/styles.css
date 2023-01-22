@@ -8,7 +8,7 @@ a:hover {
 }
 
 section {
-  padding: 10%;
+  padding: 9%;
 }
 
 section .heading {
@@ -40,23 +40,12 @@ article mark {
   color: #c80000;
 }
 
+.techskills {
+  list-style-type: none;
+}
+
 #sidebar {
   height: 100%;
-}
-
-#coinup {
-  position: absolute;
-  width: 160px;
-  height: 56px;
-}
-
-#coin {
-  position: absolute;
-  width: 56px;
-  left: 50px;
-  bottom: 40px;
-  animation: bounce 1.33s forwards;
-  transform-origin: center bottom;
 }
 
 .heading {
